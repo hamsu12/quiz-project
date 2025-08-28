@@ -1,0 +1,144 @@
+.main-page {
+    place-items: center;
+}
+.sheet {
+   padding: 56px 48px 40px;
+}
+.sheet-title {
+    font-family:'Joseon-Gulim';
+    text-align: center;
+    margin: 0 0 24px;
+}
+
+.sheet-subtitle {
+    font-family:'Binggre-II';
+    text-align: center;
+    font-size: 38px;
+    padding-bottom: 40px;
+}
+
+.hint-text {
+    color: #9a9a9a;
+    font-size: 14px;
+}
+
+.id-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 45px;
+    margin: 28px 0 8px;
+}
+
+.id-field {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.id-lable{
+    font-family:'Joseon-Shinmyeongjo';
+    font-size:18px;
+}
+
+.id-input {
+    font-family: 'Pretendard';
+    border: 1px solid #1f1f1f;
+    font-size: 16px;
+    padding: 8px;
+    width: 250px;
+    outline: none;
+}
+.id-input::placeholder {
+    font-size: 14px;
+}
+.id-input.error {
+    border-color: #ff4d4f !important;
+    box-shadow: 0 0 0 3px rgba(255, 77, 79, 0.15) inset;
+}
+.id-input.readonly:disabled {
+    background: #f6f6f6;
+    color: #666;
+    cursor: not-allowed;
+}
+.notice-card {
+    border: 1px solid #dcdcdc;
+    padding: 24px 24px 28px;
+    margin: 24px 0 28px;
+}
+
+.notice-list {
+    font-family:"Pretendard";
+    margin: 0 0 16px;
+    padding-left: 20px;
+    line-height: 2.0;
+    font-size: 18px;
+}
+
+.notice-input {
+    font-family: 'Joseon-Shinmyeongjo';
+    border: none;
+    height: 40px;
+    width: 80%;
+    background: #efefef;
+    text-align: center;
+    font-weight: 700;
+    font-size: 17px;
+}
+
+.notice-input.error {
+    outline: 2px solid #ff4d4f;
+}
+
+.notice-input::placeholder {
+    color: #6b6b6b;
+    opacity: .7;
+}
+
+.start-button {
+    font-family: 'Pretendard';
+    width: 100%;
+    margin: 10px 0 50px;
+    padding: 16px 18px;
+    background: #efefef;
+    border: 1px solid black;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 10px 18px rgba(0,0,0,0.08);
+    transition: transform .05s ease, box-shadow .2s ease, background .15s ease;
+}
+
+.start-button:hover {
+    background: #ededed;
+    box-shadow: 0 12px 22px rgba(0,0,0,0.1);
+}
+
+.footer {
+    font-family: 'Joseon-Gulim';
+    text-align: center;
+    font-size: 20px;
+}
+
+@font-face {
+    font-family: 'Joseon-Gulim';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunGu.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
+} /*굴림*/
+@font-face {
+    font-family: 'Joseon-Shinmyeongjo';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.1/ChosunSm.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
+} /*조선신명조*/
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Light.woff') format('woff');
+    font-weight: 300;
+    font-display: swap;
+}/*프리텐다드*/
+@font-face {
+    font-family: 'Binggre-II';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Binggrae-Bold.woff') format('woff');
+    font-weight: 700;
+    font-display: swap;
+}/*빙그레체*/
