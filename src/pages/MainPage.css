@@ -108,8 +108,8 @@
 }
 
 .start-button:hover {
-    background: #ededed;
-    box-shadow: 0 12px 22px rgba(0,0,0,0.1);
+    background: #e2e2e2;
+    box-shadow: 0 12px 22px rgba(0,0,0,0.12);
 }
 
 .footer {
@@ -117,6 +117,68 @@
     text-align: center;
     font-size: 20px;
 }
+
+.intro-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0,0,0,.35);
+    backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn .18s ease-out forwards;
+}
+
+.intro-card {
+    width: min(520px, 90%);
+    background: #fff;
+    border-radius: 12px;
+    padding: 28px 24px 24px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,.18);
+    transform: scale(.96);
+    animation: pop .22s ease-out forwards;
+}
+
+.intro-title {
+    font-family: 'Pretendard';
+    font-size: 17px;
+    padding:10px;
+}
+
+.intro-span{
+    font-family: 'Joseon-Shinmyeongjo';
+    font-weight: bold;
+}
+
+.intro-title2 {
+    font-family: 'Joseon-Shinmyeongjo';
+    padding-top: 20px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.intro-bar {
+    margin-top: 16px;
+    height: 6px;
+    background: #f1f1f1;
+    border-radius: 999px;
+    overflow: hidden;
+}
+.intro-bar span {
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: #111;
+    animation: load 5.0s ease-out forwards;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes pop { to { transform: scale(1); } }
+@keyframes load { to { width: 100%; } }
+
+
 
 @font-face {
     font-family: 'Joseon-Gulim';

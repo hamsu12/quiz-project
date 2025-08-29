@@ -1,18 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './MainPage.css';
 
 const EXACT_PHRASE = '르 파라느 다말라두';
+const INTRO_MS = 4000;
 
 export default function MainPage() {
     const [nickname, setNickname] = useState('');
     const [signature, setSignature] = useState('');
-    const [examNo] = useState('19950828'); // 고정값
+    const [examNo] = useState('19950828');
 
     const [nameError, setNameError] = useState(false);
     const [signError, setSignError] = useState(false);
 
+    const [showIntro, setShowIntro] = useState(false);
+
     const navigate = useNavigate();
+
+    useEffect(() => {
+        alert('원활한 이용을 위해 PC(데스크톱) 사용을 권장드립니다 !\n모바일/태블릿에서는 화면이 일부 깨질 수 있어요.');
+    }, []);
 
     const handleStart = () => {
         let valid = true;
@@ -36,7 +43,11 @@ export default function MainPage() {
 
         if (!valid) return;
 
-        navigate(`/quiz/${encodeURIComponent(nickname.trim())}`);
+        setShowIntro(true);
+
+        setTimeout(() => {
+            navigate(`/quiz/${encodeURIComponent(nickname.trim())}`);
+        }, INTRO_MS);
     };
 
     return (
@@ -56,9 +67,9 @@ export default function MainPage() {
                             onChange={(e) => setNickname(e.target.value)}
                             onFocus={() => setNameError(false)}
                             aria-invalid={nameError}
+                            maxLength={4}
                         />
                     </div>
-
                     <div className="id-field">
                         <div className="id-lable">수험번호</div>
                         <input
@@ -87,12 +98,37 @@ export default function MainPage() {
                     />
                 </div>
 
-                <button className="start-button" onClick={handleStart}>
+                <button className="start-button" onClick={handleStart} disabled={showIntro}>
                     * 시험이 시작되기 전까지 버튼을 클릭하지 마시오.
                 </button>
 
                 <div className="footer">함수광역시 교육청</div>
             </div>
+
+            {showIntro && (
+                <div
+                    className="intro-overlay"
+                    role="dialog"
+                    aria-modal="true"
+                    style={{ ['--intro-duration' as any]: `${INTRO_MS}ms` }}
+                >
+                    <div className="intro-card">
+                        <div className="intro-title">
+                            <span className="intro-span"> 응시자 : </span>{nickname}
+                        </div>
+                        <div className="intro-title">
+                            <span className="intro-span">수험번호</span> : {examNo}
+                        </div>
+                        <div className="intro-title">
+                            <span className="intro-span">총 문항 수 : 15개</span>
+                        </div>
+                        <div className="intro-title2">시험을 시작합니다!</div>
+                        <div className="intro-bar">
+                            <span />
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
